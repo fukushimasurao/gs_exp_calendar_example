@@ -7,6 +7,7 @@ use App\Http\Controllers\GoodByeController;
 
 // ⭐️追加！
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProductController;
 
 
 Route::get('/', function () {
@@ -22,3 +23,5 @@ Route::get('/good-bye', [GoodByeController::class, 'goodBye']);
 
 // ⭐️追加！
 Route::get('/members', [MemberController::class, 'index']);
+
+Route::get('/products', [ProductController::class, 'index']);
