@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // ⭐️⭐️⭐️⭐️⭐️以下メソッド追加⭐️⭐️⭐️⭐️⭐️
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }
