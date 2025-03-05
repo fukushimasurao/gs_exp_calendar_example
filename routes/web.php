@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
+    // ⭐️↓追加。
+    Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 });
 
 
