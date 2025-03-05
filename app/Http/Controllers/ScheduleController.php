@@ -72,4 +72,14 @@ class ScheduleController extends Controller
         return $schedules;
     }
 
+
+    /**
+     * 予定一覧画面
+     */
+    public function scheduleList()
+    {
+        $schedules = Schedule::where('user_id', Auth::id())->orderBy('start_date', 'asc')->get();
+        return view('schedule-list', ['schedules' => $schedules]);
+    }
+
 }
