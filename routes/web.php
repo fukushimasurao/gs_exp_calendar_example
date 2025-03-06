@@ -20,12 +20,16 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
     Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
-    
+
     // スケジュール一覧画面
     Route::get('/schedule-list', [ScheduleController::class, 'scheduleList'])->name('schedule-list');
 
     // スケジュール詳細画面
     Route::get('/schedules/{id}', [ScheduleController::class, 'show'])->name('schedules.show');
+
+    // ⭐️スケジュール削除
+    Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
+
 });
 
 require __DIR__.'/auth.php';

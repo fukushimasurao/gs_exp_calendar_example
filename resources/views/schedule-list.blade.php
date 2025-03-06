@@ -26,17 +26,16 @@
                                 <td class="py-2 px-4 border-b">{{ $schedule->start_date }}</td>
                                 <td class="py-2 px-4 border-b">{{ $schedule->end_date }}</td>
                                 <td class="py-2 px-4 border-b">
-
-                                    {{-- ⭐️⭐️↓3行のコメントアウト外す⭐️⭐️--}}
                                     <a href="{{ route('schedules.show', $schedule->id) }}">
                                         <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">詳細</button>
                                     </a>
 
-                                    {{--                                    <form action="{{ route('schedules.destroy', $schedule->id) }}" method="POST" class="inline-block"> --}}
-                                    {{--                                        @csrf --}}
-                                    {{--                                        @method('DELETE') --}}
-                                    {{--                                        <button type="submit" class="ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">削除</button> --}}
-                                    {{--                                    </form> --}}
+                                    {{-- ⭐️ 以下のform部分のコメントを外す  --}}
+                                    <form action="{{ route('schedules.destroy', $schedule->id) }}" method="POST" class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">削除</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

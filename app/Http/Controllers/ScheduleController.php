@@ -87,4 +87,16 @@ class ScheduleController extends Controller
         return view('schedule-show', ['schedule' => $schedule]);
     }
 
+    // ⭐️追加。
+    public function destroy($id)
+    {
+        // showメソッドと同じ。Scheduleからひとつ抜き出す。
+        $schedule = Schedule::findOrFail($id);
+
+        // delete()で文字通り削除。
+        $schedule->delete();
+
+        // 'schedule-list'にリダイレクト。'schedule-list'はrouteでつけた「あだ名」の部分です。
+        return redirect()->route('schedule-list');
+    }
 }
