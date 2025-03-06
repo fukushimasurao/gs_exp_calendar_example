@@ -27,9 +27,11 @@ Route::middleware('auth')->group(function () {
     // スケジュール詳細画面
     Route::get('/schedules/{id}', [ScheduleController::class, 'show'])->name('schedules.show');
 
-    // ⭐️スケジュール削除
+    //  スケジュール削除
     Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
 
+    // ⭐ 追加スケジュール修正画面
+    Route::get('/schedules/{id}/edit', [ScheduleController::class, 'edit'])->name('schedules.edit');
 });
 
 require __DIR__.'/auth.php';

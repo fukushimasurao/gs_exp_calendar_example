@@ -87,7 +87,6 @@ class ScheduleController extends Controller
         return view('schedule-show', ['schedule' => $schedule]);
     }
 
-    // ⭐️追加。
     public function destroy($id)
     {
         // showメソッドと同じ。Scheduleからひとつ抜き出す。
@@ -98,5 +97,12 @@ class ScheduleController extends Controller
 
         // 'schedule-list'にリダイレクト。'schedule-list'はrouteでつけた「あだ名」の部分です。
         return redirect()->route('schedule-list');
+    }
+
+    // ⭐️ 修正画面表示 追加。
+    public function edit($id)
+    {
+        $schedule = Schedule::findOrFail($id);
+        return view('schedule-edit', ['schedule' => $schedule]);
     }
 }

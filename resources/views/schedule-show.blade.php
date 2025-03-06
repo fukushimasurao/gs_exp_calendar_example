@@ -15,9 +15,10 @@
                     <div class="mb-4"><strong>Details:</strong></div>
                     <div class="mb-4">{!! nl2br(e($schedule->details)) !!}</div>
                     <div class="mt-4">
-{{--                        <a href="{{ route('schedules.edit', $schedule->id) }}">--}}
-{{--                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">編集</button>--}}
-{{--                        </a>--}}
+{{--    // ⭐️↓ここ--}}
+                        <a href="{{ route('schedules.edit', $schedule->id) }}">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">編集</button>
+                        </a>
                         <a href="{{ route('schedule-list') }}">
                             <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">戻る</button>
                         </a>
