@@ -105,4 +105,28 @@ class ScheduleController extends Controller
         $schedule = Schedule::findOrFail($id);
         return view('schedule-edit', ['schedule' => $schedule]);
     }
+
+    // ⭐️追加
+    public function update(Request $request, $id)
+    {
+        // ブラウザから送られる内容 = formのinputの内容に対してバリデーションの処理
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'event_name' => 'required|max:32',
+            'details' => 'nullable|string|max:1024',
+        ]);
+
+        // URLで与えられたIDでスケジュールを検索
+        $schedule = Schedule::findOrFail($id);
+
+        //
+        $schedule->start_date = $request->input('start_date');
+        $schedule->end_date = $request->input('end_date');
+        $schedule->event_name = $request->input('event_name');
+        $schedule->details = $request->input('details');
+        $schedule->save();
+
+        return redirect()->route('schedules.show', $schedule->id);
+    }
 }

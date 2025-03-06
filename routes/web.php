@@ -30,8 +30,11 @@ Route::middleware('auth')->group(function () {
     //  スケジュール削除
     Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
 
-    // ⭐ 追加スケジュール修正画面
+    //  追加スケジュール修正画面
     Route::get('/schedules/{id}/edit', [ScheduleController::class, 'edit'])->name('schedules.edit');
+
+    // スケジュール修正処理
+    Route::patch('/schedules/{id}', [ScheduleController::class, 'update'])->name('schedules.update');
 });
 
 require __DIR__.'/auth.php';
