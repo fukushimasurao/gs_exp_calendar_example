@@ -12,9 +12,7 @@
                     <h3 class="text-lg font-bold mb-4">詳細内容をAIに相談しよう！</h3>
 
                     {{-- ⭐️formの作成 --}}
-                    <form method="POST">
-
-                        {{-- <form method="POST" action="{{ route('gemini.response') }}"> --}}
+                    <form method="POST" action="{{ route('gemini.response') }}">
                         @csrf
                         <div class="mb-4">
                             <label for="ai_query" class="block text-sm font-medium text-gray-700">相談内容</label>
